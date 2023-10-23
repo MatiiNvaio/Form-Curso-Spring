@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titulo}"></title>
+    <link rel="stylesheet" th:href="@{../estilo.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100&family=Oswald:wght@300&family=Raleway:wght@100&family=Wix+Madefor+Text:wght@400;600;800&family=Work+Sans:wght@300;400;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<form id="form" th:action="@{/form}" th:object="${usuario}" method="post">
+
+  <div>
+      <div>
+          <select th:field="*{pais}" id="pais" placeholder="Pais">
+              <option value="" >--SELECCIONAR--</option>
+              <option th:each="pais: ${listaPaises}" th:text="${pais.nombre}" th:value="${pais.id}"></option>
+          </select>
+      </div>
+      <div class="alerta" th:if="${#fields.hasErrors('pais')}" th:errors="*{pais}"></div>
+
+      <div class="roles" th:each="rol: ${listaRoles}">
+        <div class="contenedor_box">
+            <input class="box" type="checkbox" th:field="*{roles}" th:value="${rol.id}"
+            th:checked="${#lists.contains(usuario.roles, rol)}"> <!--checked marca el input si la expresion entre comillas es true-->
+            <label th:for="${#ids.prev('roles')}" th:text="${rol.nombre}"></label>
+        </div>
+      </div>
+      <div class="alerta" th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}"></div>
+
+      <div> 
+          <input type="text" th:field="*{identificador}" id="identificador" placeholder="Identificador">
+      </div>
+      <div class="alerta" th:if="${#fields.hasErrors('identificador')}" th:errors="*{identificador}"></div>
+
+      <div>
+          <input type="text" th:field="*{nombre}" id="nombre" placeholder="Nombre">
+      </div>
+      <div class="alerta" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+
+      <div>
+          <input type="text" th:field="*{apellido}" id="apellido" placeholder="Apellido">
+      </div>
+      <div class="alerta" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
+
+      <div>
+    <!--     field hace referencia al campo de object declarado arriba-->
+          <input type="text" th:field="*{username}" id="username" placeholder="Nombre de Usuario">
+      </div>
+        <!--      con fields preguntamos si este campo tiene errores-->
+      <div class="alerta" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+
+      <div>
+          <input type="password" th:field="*{password}" id="password" placeholder="Contraseña">
+      </div>
+      <div class="alerta" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+
+      <div>
+          <input type="text" th:field="*{email}" id="email" placeholder="Correo">
+      </div>
+      <div class="alerta" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+
+      <div>
+          <input type="number" th:field="*{cuenta}" id="cuenta" placeholder="Cuenta">
+      </div>
+      <div class="alerta" th:if="${#fields.hasErrors('cuenta')}" th:errors="*{cuenta}"></div>
+
+      <div>
+          <input type="date" th:field="*{fechaNacimiento}" id="fechaNacimiento" placeholder="yyyy/MM/dd">
+      </div>
+      <div class="alerta" th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></div>
+
+      <div class="box-habilitar">
+        <div>
+            <input type="checkbox" th:field="*{habilitar}" id="habilitar" >
+            <label for="habilitar">Habilitar</label>
+        </div>
+        <div>
+            <input type="checkbox" id="deshabilitar" >
+            <label for="habilitar">Deshabilitar</label>
+        </div>
+      </div>
+
+      <div class="radio-genero" >
+          <div class="radio" th:each="gen: ${genero}">
+              <input type="radio" th:field="*{genero}"  th:value="${gen}">
+              <label th:for="${#ids.prev('genero')}" th:text="${gen}"></label>
+          </div>
+      </div>
+      <div class="alerta" th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}"></div>
+
+      <input type="hidden"  th:field="*{valorSecreto}">
+
+      <div>
+          <input class="boton" type="submit" value="Enviar">
+      </div>
+  </div>
+
+</form>
+</body>
+</html>

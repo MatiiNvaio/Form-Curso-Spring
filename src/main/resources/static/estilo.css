@@ -1,0 +1,161 @@
+
+body{
+    background-color: rgb(32, 30, 30);
+    color: white;
+    font-family: 'Barlow', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Wix Madefor Text', sans-serif;
+    font-family: 'Work Sans', sans-serif;
+    margin: 0;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column; /* Cambiamos la dirección para que los elementos se apilen verticalmente en pantallas pequeñas */
+    align-items: center; /* Centra los elementos horizontalmente */
+    margin: 0 auto;
+    max-width: 350px; /* Usamos max-width en lugar de width para permitir que el formulario se adapte en pantallas más pequeñas */
+    padding: 15px; /* Espaciado interior para el contenido del formulario */
+    border: 2px solid rgb(17, 87, 119);
+    border-top:none ;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+    position: relative;
+  }
+
+div input{
+    padding: 11px 0;
+    background-color: rgb(32, 30, 30);
+    color: white;
+    border: none;
+    border-bottom: 2px solid rgb(17, 87, 119);
+    width: 100%;
+}
+
+input::placeholder{
+    color: rgb(101, 90, 90);
+    background-color: rgb(32, 30, 30);
+    border: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+div input:-webkit-autofill{
+    background-color: rgb(32, 30, 30);
+}
+
+.alerta{
+    font-size: 11px;
+    color: rgb(234, 22, 22);
+    text-align: center;
+}
+
+.boton {
+    border: 2px solid rgb(177, 179, 180);
+    border-radius: 15px;
+    position: relative;
+    width: 100%; /* Aprovecha el ancho completo del contenedor */
+    max-width: 280px; /* Establece un ancho máximo */
+    margin: 10px auto; /* Centra el botón horizontalmente y agrega un margen en la parte superior y inferior */
+    padding: 10px 20px; /* Ajusta el espacio dentro del botón */
+  }
+
+select{
+    padding: 15px;
+    background-color: rgb(32, 30, 30);
+    color: white;
+    border: none;
+    border-bottom: 2px solid rgb(17, 87, 119);
+    width: 280px;
+}
+
+.contenedor_box{
+    display: inline;
+}
+
+label{
+    font-size: 12px;
+}
+
+.box{
+    width: 20px;
+    margin: 10px;
+}
+
+.box-habilitar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-habilitar div{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.radio-genero{
+    display: flex;
+    justify-content: space-between;
+}
+
+.radio{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    form {
+      max-width: 100%; /* Ocupa todo el ancho de la pantalla en pantallas pequeñas */
+    }
+  }
+
+/* estilo ver.html */
+
+h3{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.lista{
+    position: relative;
+    border: 2px solid rgb(17, 87, 119);
+    border-radius: 15px;
+    padding: 20px;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(255, 255, 255, .2);
+} 
+
+li{
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+ul p{
+    text-decoration: underline;
+}
+
+.btn-volver{
+    text-decoration: none;
+    border: 1px solid rgb(17, 87, 119);
+    background-color: rgb(32, 30, 30);
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 12px;
+    transition: background-color 0.3s ease;;
+}
+
+.btn-volver:hover{
+    border: 1px solid rgb(49, 126, 161);
+    background-color: rgb(84, 78, 78);
+}

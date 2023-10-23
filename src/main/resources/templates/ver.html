@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${titulo}"></title>
+  <link rel="stylesheet" th:href="@{../estilo.css}">
+</head>
+<body>
+
+<h3 th:text="${titulo}"></h3>
+
+  <ul class="lista">
+    <a th:href="@{/form}" class="btn-volver">Volver</a>
+    <li th:text="'Nombre:  ' + ${usuario.nombre}"></li>
+    <li th:text="'Apellido:  ' + ${usuario.apellido}"></li>
+    <li th:text="'Nombre de usuario:  ' + ${usuario.username}"></li>
+    <li th:text="'Contraseña:  ' + ${usuario.password}"></li>
+    <li th:text="'Email:  ' + ${usuario.email}"></li>
+    <li th:text="'Identificador:  ' + ${usuario.identificador}"></li>
+    <li th:text="'N° de cuenta:  ' + ${usuario.cuenta}"></li>
+    <li th:text="'Código país:  ' + ${usuario.pais.codigo}"></li>
+    <li th:text="'Id país:  ' + ${usuario.pais.id}"></li>
+    <li th:text="'Nombre país:  ' + ${usuario.pais.nombre }"></li>
+    <li th:text="'Fecha de nacimiento:  ' + ${#dates.format(usuario.fechaNacimiento, 'dd/MM/yyyy')}"></li>
+    <li th:text="'Habilitado:  ' + ${usuario.habilitar}"></li>
+    <li th:text="'Genero:  ' + ${usuario.genero}"></li>
+    <li th:text="'Valor secreto:  ' + ${usuario.valorSecreto}"></li>
+
+    <p>Roles:</p>
+
+    <div class="roles">
+      <li th:each = "rol: ${usuario.roles}" th:text="${rol.id} + ': ' + ${usuario.nombre} + ' => ' + ${rol.nombre}"></li>
+    </div>
+  </ul>
+
+</body>
+</html>
